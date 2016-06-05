@@ -10,7 +10,6 @@ namespace towerDefense
     {
         //accessor public methods to call on private methods
 
-        return _location;
         public MapLocation Location { get; private set; }
     }
 }
