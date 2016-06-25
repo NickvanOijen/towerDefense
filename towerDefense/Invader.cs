@@ -6,31 +6,45 @@ using System.Threading.Tasks;
 
 namespace towerDefense
 {
-    class Invader
+     class Invader
     {
         private readonly Path _path;
         private int _pathStep = 0;
-        //accessor public methods to call on private methods
-
-        public MapLocation Location
-        {
-            get
-            {
-                return _path.GetLocationAt(_pathStep);
-            }
-        }
-
+        
+        public MapLocation Location => _path.GetLocationAt(_pathStep);
+        
+        public int Health { get; private set; } = 100;
+        
+        // True if the invader has reached the end of the path
+        public bool HasScored { get { return _pathStep >= _path.Length; } }
+        
+        public bool IsNeutralized => Health <= 0;
+        
+        public bool IsActive => !(IsNeutralized || HasScored);
+        
         public Invader(Path path)
         {
             _path = path;
         }
-
-        public void Move()
+        
+        public void Move() => _pathStep += 1;
+        
+        public void DecreaseHealth(int factor)
         {
-            _pathStep += 1;
+            Health -= factor;
         }
     }
 }
 
-    
+/*get set accessor method        ----can be written in a property
+        public MapLocation GetLocation()
+        {
+            return _location;
+        }
+
+        public void SetLocation(MapLocation value)
+        {
+            _location = value;
+        }*/
+
 
