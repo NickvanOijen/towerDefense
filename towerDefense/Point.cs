@@ -6,29 +6,38 @@ using System.Threading.Tasks;
 
 namespace towerDefense
 {
-    class Point
+    public class Point
     {
+
         public readonly int X;
         public readonly int Y;
-
-        public Point (int x, int y)
+        
+       public Point(int x, int y)
         {
             X = x;
             Y = y;
         }
 
-        public int DistanceTo (int x, int y)
+        public int DistanceTo(int x, int y)
         {
             int xDiff = X - x;
             int yDiff = Y - y;
 
-            int xDiffSquared = xDiff * xDiff;
-            int yDiffSquared = yDiff * yDiff;
-            return (int)Math.Sqrt(xDiffSquared + yDiffSquared);
+            int xDiffSqrt = xDiff * xDiff;
+            int yDiffSqrt = yDiff * yDiff;
+
+            return (int) Math.Sqrt(xDiffSqrt + yDiffSqrt);
+
+            /* shorter version of carthesian distance formula
+             * return (int)Math.Sqrt(Math.Pow (X-x,2) + Math.Pow(Y-y, 2)); */
         }
+
+        //O-O-O-O-O-OVERLOAAAAAAAADDDDD the fudge out of DistanceTo!!
         public int DistanceTo(Point point)
         {
             return DistanceTo(point.X, point.Y);
         }
+
+
     }
 }

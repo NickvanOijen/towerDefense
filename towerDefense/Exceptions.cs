@@ -6,24 +6,29 @@ using System.Threading.Tasks;
 
 namespace towerDefense
 {
-    class DefenseExceptions : System.Exception
+    class DefenseException : System.Exception
     {
-        public DefenseExceptions()
+        public DefenseException()
         {
+
         }
-        public DefenseExceptions(string message) : base(message)
+
+        public DefenseException(string message) : base(message)
         {
+
         }
-    }
-
-
-    class OutOfBoundsExceptions : DefenseExceptions
+        
+            }
+    class OutOfBoundsException : DefenseException
     {
-        public OutOfBoundsExceptions()
+        public OutOfBoundsException()
         {
+
         }
-        public OutOfBoundsExceptions(string message) : base(message)
+
+        public OutOfBoundsException(string message) : base(message)
         {
+
         }
     }
 }
